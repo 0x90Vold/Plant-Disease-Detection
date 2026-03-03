@@ -1,4 +1,4 @@
-# 🌱 Plant Disease Detection AI
+# ระบบตรวจจับโรคพืชด้วย AI
 
 <div align="center">
 
@@ -7,19 +7,19 @@
 ![Accuracy](https://img.shields.io/badge/Accuracy-91.67%25-4CAF50?style=for-the-badge)
 ![Diseases](https://img.shields.io/badge/Diseases-12_Types-FF6B6B?style=for-the-badge)
 
-**🚀 ตรวจจับโรคพืช 12 ชนิด ด้วย AI ใน 7 บรรทัดโค้ด**
+**ตรวจจับโรคพืช 12 ชนิด ด้วย AI ในเพียง 7 บรรทัดโค้ด**
 
-*AI-Powered Plant Disease Detection for Beans, Strawberries & Tomatoes*
+*ระบบ AI สำหรับการตรวจจับโรคในพืชถั่ว สตรอเบอรี่ และมะเขือเทศ*
 
 </div>
 
-## ⚡ Quick Start
+## เริ่มต้นใช้งาน
 
 ```bash
-# Install requirements
+# ติดตั้ง dependencies
 pip install ultralytics
 
-# Place your plant image as "leaf_photo.jpg" then run:
+# วางรูปภาพพืชของคุณเป็นชื่อ "leaf_photo.jpg" แล้วรันคำสั่ง:
 python main.py
 ```
 
@@ -38,51 +38,51 @@ results[0].show()
 
 <br>
 
-## 📊 Model Performance
+## ประสิทธิภาพของโมเดล
 
 | Metric | Score | Description |
 |--------|-------|-------------|
-| **mAP50** | 91.67% | Primary accuracy |
-| **Precision** | 91.85% | True positive rate |
-| **Recall** | 86.78% | Disease detection rate |
-| **mAP50-95** | 77.15% | Overall accuracy |
+| **mAP50** | 91.67% | ความแม่นยำหลัก |
+| **Precision** | 91.85% | อัตราการตรวจจับที่ถูกต้อง |
+| **Recall** | 86.78% | อัตราการตรวจจับโรค |
+| **mAP50-95** | 77.15% | ความแม่นยำโดยรวม |
 
-🏆 **Trained on 5,493 images • 100 epochs • YOLOv8 Nano**
+**ฝึกฝนด้วยภาพ 5,493 รูป • 100 epochs • YOLOv8 Nano**
 
 <br>
 
 <details>
-<summary><b>📈 กราฟผลลัพธ์ (คลิกเพื่อดู)</b></summary>
+<summary><b>กราฟผลลัพธ์ (คลิกเพื่อดู)</b></summary>
 
 <br>
 
 <div align="center">
 
-**Training Results**
+**ผลลัพธ์การฝึกฝน**
 
 <img src="runs/detect/train/results.png" width="800">
 
 <br>
 
-**Confusion Matrix**
+**เมทริกซ์ความสับสน**
 
 <img src="runs/detect/train/confusion_matrix.png" width="600">
 
 <br>
 
-**Confusion Matrix (Normalized)**
+**เมทริกซ์ความสับสน (ปรับมาตรฐาน)**
 
 <img src="runs/detect/train/confusion_matrix_normalized.png" width="600">
 
 <br>
 
-**PR Curve**
+**กราฟ PR Curve**
 
 <img src="runs/detect/train/BoxPR_curve.png" width="600">
 
 <br>
 
-**F1 Curve**
+**กราฟ F1 Curve**
 
 <img src="runs/detect/train/BoxF1_curve.png" width="600">
 
@@ -93,7 +93,7 @@ results[0].show()
 <br>
 
 <details>
-<summary><b>🖼️ ตัวอย่าง Prediction vs Ground Truth (คลิกเพื่อดู)</b></summary>
+<summary><b>ตัวอย่าง Prediction vs Ground Truth (คลิกเพื่อดู)</b></summary>
 
 <br>
 
@@ -115,11 +115,11 @@ results[0].show()
 
 <br>
 
-## � **Code Example**
+## ตัวอย่างโค้ด
 
 <div align="center">
 
-**The entire detection code is just 7 lines!**
+**โค้ดการตรวจจับทั้งหมดใช้เพียง 7 บรรทัด!**
 
 ```python
 from ultralytics import YOLO
@@ -137,19 +137,19 @@ results[0].show()
 <tr>
 <td align="center">
   <img src="https://img.shields.io/badge/1-Import_YOLO-FF6B6B?style=for-the-badge&labelColor=1a1a1a" alt="Step 1"/>
-  <br><sub>Load Framework</sub>
+  <br><sub>โหลด Framework</sub>
 </td>
 <td align="center">
   <img src="https://img.shields.io/badge/2-Load_Model-4ECDC4?style=for-the-badge&labelColor=1a1a1a" alt="Step 2"/>
-  <br><sub>AI Brain Ready</sub>
+  <br><sub>AI พร้อมใช้งาน</sub>
 </td>
 <td align="center">
   <img src="https://img.shields.io/badge/3-Predict-45B7D1?style=for-the-badge&labelColor=1a1a1a" alt="Step 3"/>
-  <br><sub>Detect Disease</sub>
+  <br><sub>ตรวจจับโรค</sub>
 </td>
 <td align="center">
   <img src="https://img.shields.io/badge/4-Show-96CEB4?style=for-the-badge&labelColor=1a1a1a" alt="Step 4"/>
-  <br><sub>View Results</sub>
+  <br><sub>ดูผลลัพธ์</sub>
 </td>
 </tr>
 </table>
@@ -162,25 +162,25 @@ results[0].show()
 
 <br>
 
-## 🦠 Supported Plant Diseases (12 Types)
+## โรคพืชที่รองรับ (12 ชนิด)
 
-### 🫘 Bean Diseases (2)
-- Angular Leaf Spot
-- Rust
+### โรคในถั่ว (2 ชนิด)
+- โรคใบจุดเหลี่ยม (Angular Leaf Spot)
+- โรคสนิม (Rust)
 
-### 🍓 Strawberry Diseases (7)
-- Angular Leaf Spot
-- Anthracnose Fruit Rot  
-- Blossom Blight
-- Gray Mold
-- Leaf Spot
-- Powdery Mildew (Fruit)
-- Powdery Mildew (Leaf)
+### โรคในสตรอเบอรี่ (7 ชนิด)
+- โรคใบจุดเหลี่ยม (Angular Leaf Spot)
+- โรคเน่าผลแอนแทรคโนส (Anthracnose Fruit Rot)
+- โรคดอกไหม้ (Blossom Blight)
+- โรคเทาราแกรย์โมลด์ (Gray Mold)
+- โรคใบจุด (Leaf Spot)
+- โรคราแป้งผล (Powdery Mildew Fruit)
+- โรคราแป้งใบ (Powdery Mildew Leaf)
 
-### 🍅 Tomato Diseases (3)
-- Blight
-- Leaf Mold  
-- Spider Mites
+### โรคในมะเขือเทศ (3 ชนิด)
+- โรคใบไหม้ (Blight)
+- โรคราใบ (Leaf Mold)
+- โรคไรแดง (Spider Mites)
 
 <br>
 
@@ -188,39 +188,30 @@ results[0].show()
 
 <br>
 
-## 📁 Project Structure
+## โครงสร้างโปรเจค
 
 ```
 Plant-Disease-Detection/
-├── main.py                      # Detection script (7 lines)
-├── requirements.txt             # Dependencies
-├── data.yaml                    # Dataset configuration
-├── yolo26n.pt                   # Pre-trained weights
+├── main.py                      # สคริปต์ตรวจจับโรค (7 บรรทัด)
+├── requirements.txt             # ไลบรารีที่ต้องใช้
+├── data.yaml                    # การตั้งค่าชุดข้อมูล
+├── yolo26n.pt                   # โมเดลที่ฝึกมาแล้ว
 └── runs/detect/train/
-    ├── weights/best.pt          # Trained model
-    ├── results.png              # Training metrics
-    └── confusion_matrix.png     # Performance analysis
+    ├── weights/best.pt          # โมเดลที่ดีที่สุด
+    ├── results.png              # กราฟผลการฝึก
+    └── confusion_matrix.png     # การวิเคราะห์ประสิทธิภาพ
 ```
 
-## ⚙️ Technical Specifications
+## ข้อมูลทางเทคนิค
 
-- **Model**: YOLOv8 Nano (lightweight & fast)
-- **Dataset**: 5,493 annotated images
-- **Resolution**: 640×640 pixels  
-- **Training**: 100 epochs
-- **Classes**: 12 disease types
+- **โมเดล**: YOLOv8 Nano (เบาและเร็ว)
+- **ชุดข้อมูล**: 5,493 รูปภาพที่มีการติดป้าย
+- **ความละเอียด**: 640×640 พิกเซล
+- **การฝึก**: 100 epochs
+- **จำนวนคลาส**: 12 ชนิดโรค
 
-## 🤝 Credits
+## แหล่งที่มาของข้อมูล
 
-**Built with:**
-- 📊 **Dataset**: [Roboflow Universe](https://universe.roboflow.com/artificial-intelligence-82oex/detecting-diseases/dataset/6) (CC BY 4.0)
-- 🧠 **AI Framework**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
-
----
-
-<div align="center">
-
-⭐ **If this helps you, give it a star!**  
-*Made with 💚 for smarter agriculture and better crop health*
-
-</div>
+**สร้างขึ้นด้วย:**
+- **ชุดข้อมูล**: [Roboflow Universe](https://universe.roboflow.com/artificial-intelligence-82oex/detecting-diseases/dataset/6) (CC BY 4.0)
+- **เฟรมเวิร์ค AI**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
