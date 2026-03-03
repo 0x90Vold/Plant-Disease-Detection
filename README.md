@@ -226,14 +226,5 @@ plant-ai/
 
 ---
 
-<div align="center">
-
-<br>
-
-*สร้างด้วย ❤️ และ 🌿 เพื่อเกษตรกรไทย*
-
-**[ 🌿 Plant AI · Powered by YOLOv8 ]**
-
-<br>
 
 </div>
