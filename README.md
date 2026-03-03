@@ -1,217 +1,239 @@
-# ระบบตรวจจับโรคพืชด้วย AI
-
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
-![YOLO](https://img.shields.io/badge/YOLOv8-Ultralytics-00D2FF?style=for-the-badge)
-![Accuracy](https://img.shields.io/badge/Accuracy-91.67%25-4CAF50?style=for-the-badge)
-![Diseases](https://img.shields.io/badge/Diseases-12_Types-FF6B6B?style=for-the-badge)
+<br>
 
-**ตรวจจับโรคพืช 12 ชนิด ด้วย AI ในเพียง 7 บรรทัดโค้ด**
+```
+██████╗ ██╗      █████╗ ███╗   ██╗████████╗    █████╗ ██╗
+██╔══██╗██║     ██╔══██╗████╗  ██║╚══██╔══╝   ██╔══██╗██║
+██████╔╝██║     ███████║██╔██╗ ██║   ██║      ███████║██║
+██╔═══╝ ██║     ██╔══██║██║╚██╗██║   ██║      ██╔══██║██║
+██║     ███████╗██║  ██║██║ ╚████║   ██║      ██║  ██║██║
+╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚═╝  ╚═╝╚═╝
+```
 
-*ระบบ AI สำหรับการตรวจจับโรคในพืชถั่ว สตรอเบอรี่ และมะเขือเทศ*
+# 🌿 ระบบตรวจจับโรคพืชด้วย AI
+
+### *ปกป้องพืชผลของคุณด้วยพลัง Computer Vision*
+
+<br>
+
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-00D2FF?style=for-the-badge&logo=yolo&logoColor=white)](https://ultralytics.com)
+[![mAP50](https://img.shields.io/badge/mAP50-91.67%25-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white)]()
+[![Diseases](https://img.shields.io/badge/โรคพืช-12_ชนิด-FF6B6B?style=for-the-badge&logo=leaf&logoColor=white)]()
+[![Dataset](https://img.shields.io/badge/Dataset-5%2C493_รูป-FFA726?style=for-the-badge&logo=database&logoColor=white)]()
+[![License](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey?style=for-the-badge)](https://creativecommons.org/licenses/by/4.0/)
+
+<br>
+
+> **ตรวจจับโรคพืชใน 3 พืชหลัก — ถั่ว 🫘 · สตรอเบอรี่ 🍓 · มะเขือเทศ 🍅**
+> ด้วยความแม่นยำระดับ 91.67% ในเพียง **7 บรรทัดโค้ด**
+
+<br>
 
 </div>
 
-## เริ่มต้นใช้งาน
+---
+
+## ⚡ เริ่มต้นใน 60 วินาที
 
 ```bash
-# ติดตั้ง dependencies
+# 1. ติดตั้ง dependencies
 pip install ultralytics
 
-# วางรูปภาพพืชของคุณเป็นชื่อ "leaf_photo.jpg" แล้วรันคำสั่ง:
+# 2. วางรูปภาพใบพืชของคุณในชื่อ leaf_photo.jpg แล้วรัน
 python main.py
 ```
 
-**หรือใช้โค้ดนี้โดยตรง:**
-```python
-from ultralytics import YOLO
+**หรือรันโดยตรงในโค้ด Python:**
 
-model = YOLO("runs/detect/train/weights/best.pt")
-results = model.predict("leaf_photo.jpg", conf=0.5)
-results[0].show()
+```python
+from ultralytics import YOLO                                    # 1. โหลด Framework
+
+model = YOLO("runs/detect/train/weights/best.pt")              # 2. โหลดโมเดล AI
+
+results = model.predict("leaf_photo.jpg", conf=0.5)            # 3. ตรวจจับโรค
+
+results[0].show()                                               # 4. แสดงผลลัพธ์
 ```
 
-<br>
+> 💡 **เพียงเท่านี้!** ระบบจะวิเคราะห์รูปภาพและแสดง bounding box พร้อมชื่อโรคและค่าความมั่นใจโดยอัตโนมัติ
 
 ---
 
-<br>
+## 📊 ประสิทธิภาพของโมเดล
 
-## ประสิทธิภาพของโมเดล
+<div align="center">
 
-| Metric | Score | Description |
-|--------|-------|-------------|
-| **mAP50** | 91.67% | ความแม่นยำหลัก |
-| **Precision** | 91.85% | อัตราการตรวจจับที่ถูกต้อง |
-| **Recall** | 86.78% | อัตราการตรวจจับโรค |
-| **mAP50-95** | 77.15% | ความแม่นยำโดยรวม |
+| Metric | Score | ความหมาย |
+|:------:|:-----:|:---------|
+| 🎯 **mAP50** | **91.67%** | ความแม่นยำหลักในการตรวจจับ |
+| ✅ **Precision** | **91.85%** | สัดส่วนการตรวจจับที่ถูกต้อง (ไม่แจ้งเตือนเกินจริง) |
+| 🔍 **Recall** | **86.78%** | สัดส่วนการตรวจพบโรคจริงทั้งหมด |
+| 📐 **mAP50-95** | **77.15%** | ความแม่นยำรวมทุก IoU Threshold |
 
-**ฝึกฝนด้วยภาพ 5,493 รูป • 100 epochs • YOLOv8 Nano**
+</div>
 
-<br>
+```
+Precision ████████████████████████░  91.85%
+Recall    ████████████████████░░░░░  86.78%
+mAP50     █████████████████████████  91.67%
+mAP50-95  ███████████████████░░░░░░  77.15%
+```
+
+> 🏋️ **ฝึกฝนด้วยภาพ 5,493 รูป · 100 Epochs · YOLOv8 Nano · ความละเอียด 640×640**
 
 <details>
-<summary><b>กราฟผลลัพธ์ (คลิกเพื่อดู)</b></summary>
+<summary><b>📈 ดูกราฟผลลัพธ์การฝึกฝน</b></summary>
 
 <br>
 
 <div align="center">
 
-**ผลลัพธ์การฝึกฝน**
+**Training Results Overview**
 
-<img src="runs/detect/train/results.png" width="800">
+<img src="runs/detect/train/results.png" width="800" alt="Training Results">
 
-<br>
+---
 
-**เมทริกซ์ความสับสน**
+**Confusion Matrix**
 
-<img src="runs/detect/train/confusion_matrix.png" width="600">
+<img src="runs/detect/train/confusion_matrix.png" width="600" alt="Confusion Matrix">
 
-<br>
+---
 
-**เมทริกซ์ความสับสน (ปรับมาตรฐาน)**
+**Normalized Confusion Matrix**
 
-<img src="runs/detect/train/confusion_matrix_normalized.png" width="600">
+<img src="runs/detect/train/confusion_matrix_normalized.png" width="600" alt="Normalized Confusion Matrix">
 
-<br>
+---
 
-**กราฟ PR Curve**
+**Precision-Recall Curve**
 
-<img src="runs/detect/train/BoxPR_curve.png" width="600">
+<img src="runs/detect/train/BoxPR_curve.png" width="600" alt="PR Curve">
 
-<br>
+---
 
-**กราฟ F1 Curve**
+**F1-Score Curve**
 
-<img src="runs/detect/train/BoxF1_curve.png" width="600">
+<img src="runs/detect/train/BoxF1_curve.png" width="600" alt="F1 Curve">
 
 </div>
 
 </details>
 
-<br>
-
 <details>
-<summary><b>ตัวอย่าง Prediction vs Ground Truth (คลิกเพื่อดู)</b></summary>
+<summary><b>🖼️ ดูตัวอย่าง Prediction vs Ground Truth</b></summary>
 
 <br>
 
 <div align="center">
 
-| Ground Truth | Prediction |
+| 🏷️ Ground Truth | 🤖 Prediction |
 |:---:|:---:|
-| <img src="runs/detect/train/val_batch0_labels.jpg" width="400"> | <img src="runs/detect/train/val_batch0_pred.jpg" width="400"> |
-| <img src="runs/detect/train/val_batch1_labels.jpg" width="400"> | <img src="runs/detect/train/val_batch1_pred.jpg" width="400"> |
-| <img src="runs/detect/train/val_batch2_labels.jpg" width="400"> | <img src="runs/detect/train/val_batch2_pred.jpg" width="400"> |
+| <img src="runs/detect/train/val_batch0_labels.jpg" width="380"> | <img src="runs/detect/train/val_batch0_pred.jpg" width="380"> |
+| <img src="runs/detect/train/val_batch1_labels.jpg" width="380"> | <img src="runs/detect/train/val_batch1_pred.jpg" width="380"> |
+| <img src="runs/detect/train/val_batch2_labels.jpg" width="380"> | <img src="runs/detect/train/val_batch2_pred.jpg" width="380"> |
 
 </div>
 
 </details>
 
-<br>
-
 ---
 
-<br>
-
-## ตัวอย่างโค้ด
+## 🦠 โรคพืชที่รองรับ (12 ชนิด)
 
 <div align="center">
 
-**โค้ดการตรวจจับทั้งหมดใช้เพียง 7 บรรทัด!**
-
-```python
-from ultralytics import YOLO
-
-model = YOLO("runs/detect/train/weights/best.pt")
-
-results = model.predict("leaf_photo.jpg", conf=0.5) # ใส่ภาพตรงนี้ 
-
-results[0].show()
-```
-
-<br>
-
-<table>
-<tr>
-<td align="center">
-  <img src="https://img.shields.io/badge/1-Import_YOLO-FF6B6B?style=for-the-badge&labelColor=1a1a1a" alt="Step 1"/>
-  <br><sub>โหลด Framework</sub>
-</td>
-<td align="center">
-  <img src="https://img.shields.io/badge/2-Load_Model-4ECDC4?style=for-the-badge&labelColor=1a1a1a" alt="Step 2"/>
-  <br><sub>AI พร้อมใช้งาน</sub>
-</td>
-<td align="center">
-  <img src="https://img.shields.io/badge/3-Predict-45B7D1?style=for-the-badge&labelColor=1a1a1a" alt="Step 3"/>
-  <br><sub>ตรวจจับโรค</sub>
-</td>
-<td align="center">
-  <img src="https://img.shields.io/badge/4-Show-96CEB4?style=for-the-badge&labelColor=1a1a1a" alt="Step 4"/>
-  <br><sub>ดูผลลัพธ์</sub>
-</td>
-</tr>
-</table>
+### 🫘 ถั่ว — 2 โรค
 
 </div>
 
-<br>
+| # | ชื่อโรค (ไทย) | ชื่อโรค (อังกฤษ) |
+|:-:|:---|:---|
+| 1 | โรคใบจุดเหลี่ยม | Angular Leaf Spot |
+| 2 | โรคสนิม | Rust |
+
+<div align="center">
+
+### 🍓 สตรอเบอรี่ — 7 โรค
+
+</div>
+
+| # | ชื่อโรค (ไทย) | ชื่อโรค (อังกฤษ) |
+|:-:|:---|:---|
+| 3 | โรคใบจุดเหลี่ยม | Angular Leaf Spot |
+| 4 | โรคเน่าผลแอนแทรคโนส | Anthracnose Fruit Rot |
+| 5 | โรคดอกไหม้ | Blossom Blight |
+| 6 | โรคเทาราแกรย์โมลด์ | Gray Mold |
+| 7 | โรคใบจุด | Leaf Spot |
+| 8 | โรคราแป้งผล | Powdery Mildew Fruit |
+| 9 | โรคราแป้งใบ | Powdery Mildew Leaf |
+
+<div align="center">
+
+### 🍅 มะเขือเทศ — 3 โรค
+
+</div>
+
+| # | ชื่อโรค (ไทย) | ชื่อโรค (อังกฤษ) |
+|:-:|:---|:---|
+| 10 | โรคใบไหม้ | Blight |
+| 11 | โรคราใบ | Leaf Mold |
+| 12 | โรคไรแดง | Spider Mites |
 
 ---
 
-<br>
+## 🛠️ ข้อมูลทางเทคนิค
 
-## โรคพืชที่รองรับ (12 ชนิด)
+<div align="center">
 
-### โรคในถั่ว (2 ชนิด)
-- โรคใบจุดเหลี่ยม (Angular Leaf Spot)
-- โรคสนิม (Rust)
+| Component | Detail |
+|:---------:|:------:|
+| 🤖 **โมเดล** | YOLOv8 Nano (Ultralytics) |
+| 🖼️ **ความละเอียดอินพุต** | 640 × 640 pixels |
+| 📦 **ขนาดชุดข้อมูล** | 5,493 รูปภาพที่มีการติดป้าย |
+| 🔁 **Epochs** | 100 |
+| 🏷️ **จำนวนคลาส** | 12 ชนิดโรค |
+| 📋 **Format** | YOLO (.pt weights) |
 
-### โรคในสตรอเบอรี่ (7 ชนิด)
-- โรคใบจุดเหลี่ยม (Angular Leaf Spot)
-- โรคเน่าผลแอนแทรคโนส (Anthracnose Fruit Rot)
-- โรคดอกไหม้ (Blossom Blight)
-- โรคเทาราแกรย์โมลด์ (Gray Mold)
-- โรคใบจุด (Leaf Spot)
-- โรคราแป้งผล (Powdery Mildew Fruit)
-- โรคราแป้งใบ (Powdery Mildew Leaf)
+</div>
 
-### โรคในมะเขือเทศ (3 ชนิด)
-- โรคใบไหม้ (Blight)
-- โรคราใบ (Leaf Mold)
-- โรคไรแดง (Spider Mites)
+### 📁 โครงสร้างไฟล์
 
-<br>
+```
+plant-ai/
+├── 📄 main.py                          # ไฟล์หลักสำหรับรัน prediction
+├── 🍃 leaf_photo.jpg                   # ใส่รูปภาพของคุณตรงนี้
+└── 📂 runs/
+    └── 📂 detect/
+        └── 📂 train/
+            ├── 📂 weights/
+            │   └── 🧠 best.pt          # โมเดล AI ที่ฝึกฝนแล้ว ⭐
+            ├── 📊 results.png
+            ├── 📊 confusion_matrix.png
+            └── 📊 BoxPR_curve.png
+```
 
 ---
 
+## 📚 แหล่งที่มา & เครดิต
+
+โปรเจกต์นี้สร้างขึ้นโดยใช้:
+
+- 📦 **ชุดข้อมูล** — [Roboflow Universe: Detecting Diseases Dataset v6](https://universe.roboflow.com/artificial-intelligence-82oex/detecting-diseases/dataset/6) *(CC BY 4.0)*
+- 🤖 **AI Framework** — [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
+
+---
+
+<div align="center">
+
 <br>
 
-## โครงสร้างโปรเจค
+*สร้างด้วย ❤️ และ 🌿 เพื่อเกษตรกรไทย*
 
-```
-Plant-Disease-Detection/
-├── main.py                      # สคริปต์ตรวจจับโรค (7 บรรทัด)
-├── requirements.txt             # ไลบรารีที่ต้องใช้
-├── data.yaml                    # การตั้งค่าชุดข้อมูล
-├── yolo26n.pt                   # โมเดลที่ฝึกมาแล้ว
-└── runs/detect/train/
-    ├── weights/best.pt          # โมเดลที่ดีที่สุด
-    ├── results.png              # กราฟผลการฝึก
-    └── confusion_matrix.png     # การวิเคราะห์ประสิทธิภาพ
-```
+**[ 🌿 Plant AI · Powered by YOLOv8 ]**
 
-## ข้อมูลทางเทคนิค
+<br>
 
-- **โมเดล**: YOLOv8 Nano (เบาและเร็ว)
-- **ชุดข้อมูล**: 5,493 รูปภาพที่มีการติดป้าย
-- **ความละเอียด**: 640×640 พิกเซล
-- **การฝึก**: 100 epochs
-- **จำนวนคลาส**: 12 ชนิดโรค
-
-## แหล่งที่มาของข้อมูล
-
-**สร้างขึ้นด้วย:**
-- **ชุดข้อมูล**: [Roboflow Universe](https://universe.roboflow.com/artificial-intelligence-82oex/detecting-diseases/dataset/6) (CC BY 4.0)
-- **เฟรมเวิร์ค AI**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
+</div>
