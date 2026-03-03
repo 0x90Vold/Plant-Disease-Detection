@@ -1,19 +1,7 @@
 from ultralytics import YOLO
-import os
 
-checkpoint_path = "runs/detect/train/weights/last.pt"
+model = YOLO("runs/detect/train/weights/best.pt")
 
-if os.path.exists(checkpoint_path):
-    model = YOLO(checkpoint_path)
-    train_results = model.train(resume=True)
-else:
-    model = YOLO("yolo26n.pt")
-    train_results = model.train(
-        data="data.yaml",
-        epochs=100,
-        imgsz=640,
-        device="0",
-        workers=0
-    )
+results = model.predict("leaf_photo.jpg", conf=0.5) # ใส่ภาพตรงนี้ 
 
-metrics = model.val()
+results[0].show()
