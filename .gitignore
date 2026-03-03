@@ -1,0 +1,16 @@
+# Dataset images (too large for GitHub)
+train/
+valid/
+test/
+
+# Training runs
+runs/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+.DS_Store
