@@ -1,18 +1,41 @@
 <div align="center">
 
-# 🌿 Plant Disease Detection
+# � Plant Disease Detection AI
 
-### ตรวจจับโรคพืชแบบ Real-time ด้วย YOLOv26
+<p align="center">
+  <img src="https://img.shields.io/badge/YOLOv26-Ready_to_Deploy-00D2FF?style=for-the-badge&labelColor=1a1a1a" alt="Status"/>
+  <img src="https://img.shields.io/badge/Accuracy-91.67%25-4CAF50?style=for-the-badge&labelColor=1a1a1a" alt="Accuracy"/>
+  <img src="https://img.shields.io/badge/Diseases-12_Types-FF6B6B?style=for-the-badge&labelColor=1a1a1a" alt="Disease Types"/>
+</p>
 
-[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![YOLO](https://img.shields.io/badge/YOLOv26-Ultralytics-00FFFF?style=for-the-badge&logo=yolo&logoColor=white)](https://github.com/ultralytics/ultralytics)
-[![Roboflow](https://img.shields.io/badge/Dataset-Roboflow-6706CE?style=for-the-badge&logo=roboflow&logoColor=white)](https://universe.roboflow.com/artificial-intelligence-82oex/detecting-diseases/dataset/6)
-[![License](https://img.shields.io/badge/License-CC_BY_4.0-EF9421?style=for-the-badge&logo=creativecommons&logoColor=white)](https://creativecommons.org/licenses/by/4.0/)
+### 🚀 **AI-Powered Plant Disease Detection in 7 Lines of Code**
+
+**ตรวจจับโรคพืช 12 ชนิด จากภาพถ่าย ด้วย YOLOv26 ที่เทรนจาก 5,500+ ภาพ**
 
 <br>
 
-> **ระบุโรคพืชจากภาพถ่าย** — รองรับ ถั่ว 🫘 สตรอว์เบอร์รี 🍓 มะเขือเทศ 🍅  
-> ครอบคลุม **12 โรค** • เทรนจาก **~5,500 ภาพ** • แค่รันก็ใช้ได้เลย
+<p align="center">
+  <img src="https://img.shields.io/badge/🫘_Bean-2_Diseases-8BC34A?style=flat-square" alt="Bean"/>
+  <img src="https://img.shields.io/badge/🍓_Strawberry-7_Diseases-E91E63?style=flat-square" alt="Strawberry"/>
+  <img src="https://img.shields.io/badge/🍅_Tomato-3_Diseases-FF5722?style=flat-square" alt="Tomato"/>
+</p>
+
+---
+
+## ⚡ **Quick Start - 3 Steps**
+
+```bash
+# 1️⃣ Clone & Install
+git clone https://github.com/0x90Vold/Plant-Disease-Detection.git
+cd Plant-Disease-Detection
+pip install ultralytics
+
+# 2️⃣ Replace "leaf_photo.jpg" with your image
+# 3️⃣ Run Detection
+python main.py
+```
+
+**That's it! 🎉 The AI will detect diseases and show results**
 
 </div>
 
@@ -22,18 +45,34 @@
 
 <br>
 
-## 📊 ผลลัพธ์การเทรน
+## 🎯 **Performance Metrics**
 
 <div align="center">
 
-| Metric | Score |
-|:------:|:-----:|
-| **mAP50** | `91.67%` |
-| **mAP50-95** | `77.15%` |
-| **Precision** | `91.85%` |
-| **Recall** | `86.78%` |
+<table>
+<tr>
+<td align="center">
+  <img src="https://img.shields.io/badge/mAP50-91.67%25-4CAF50?style=for-the-badge&labelColor=1a1a1a" alt="mAP50"/>
+  <br><sub>Primary Accuracy</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/Precision-91.85%25-2196F3?style=for-the-badge&labelColor=1a1a1a" alt="Precision"/>
+  <br><sub>True Positive Rate</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/Recall-86.78%25-FF9800?style=for-the-badge&labelColor=1a1a1a" alt="Recall"/>
+  <br><sub>Disease Detection Rate</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/mAP50--95-77.15%25-9C27B0?style=for-the-badge&labelColor=1a1a1a" alt="mAP50-95"/>
+  <br><sub>Overall Accuracy</sub>
+</td>
+</tr>
+</table>
 
-> 🏆 ผลลัพธ์จากการเทรน **100 epochs** บน **~5,500 ภาพ** ด้วย YOLOv26 Nano
+<br>
+
+**🏆 Trained on 5,493 images • 100 epochs • YOLOv26 Nano**
 
 </div>
 
@@ -103,171 +142,197 @@
 
 <br>
 
-## 🚀 Quick Start
+## � **Code Example**
 
-```bash
-# 1️⃣ ติดตั้ง
-pip install ultralytics
+<div align="center">
 
-# 2️⃣ เทรนโมเดล
-python main.py
-
-# 3️⃣ ทำนาย
-yolo predict model=runs/detect/train/weights/best.pt source="path/to/image.jpg"
-```
-
-<br>
-
-## 🧠 ใช้งานใน Python
+**The entire detection code is just 7 lines!**
 
 ```python
 from ultralytics import YOLO
 
-# โหลดโมเดลที่เทรนแล้ว
 model = YOLO("runs/detect/train/weights/best.pt")
 
-# ทำนายจากภาพ
-results = model.predict("leaf_photo.jpg", conf=0.5)
+results = model.predict("leaf_photo.jpg", conf=0.5) # ใส่ภาพตรงนี้ 
 
-# แสดงผล
 results[0].show()
 ```
 
 <br>
 
+<table>
+<tr>
+<td align="center">
+  <img src="https://img.shields.io/badge/1-Import_YOLO-FF6B6B?style=for-the-badge&labelColor=1a1a1a" alt="Step 1"/>
+  <br><sub>Load Framework</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/2-Load_Model-4ECDC4?style=for-the-badge&labelColor=1a1a1a" alt="Step 2"/>
+  <br><sub>AI Brain Ready</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/3-Predict-45B7D1?style=for-the-badge&labelColor=1a1a1a" alt="Step 3"/>
+  <br><sub>Detect Disease</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/4-Show-96CEB4?style=for-the-badge&labelColor=1a1a1a" alt="Step 4"/>
+  <br><sub>View Results</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+<br>
+
 ---
 
 <br>
 
-## 🏷️ โรคที่ตรวจจับได้
+## 🦠 **Supported Plant Diseases**
+
+<div align="center">
+
+### **12 Disease Types Across 3 Crops**
+
+<br>
 
 <table>
 <tr>
 <td align="center" width="33%">
 
-### 🫘 ถั่ว
+<img src="https://img.shields.io/badge/🫘_BEAN_DISEASES-2_Types-8BC34A?style=for-the-badge&labelColor=1a1a1a" alt="Bean Diseases"/>
 
-| # | โรค |
-|:-:|:---|
-| 1 | Angular Leaf Spot |
-| 2 | Rust |
+<br><br>
 
-</td>
-<td align="center" width="33%">
-
-### 🍓 สตรอว์เบอร์รี
-
-| # | โรค |
-|:-:|:---|
-| 1 | Angular Leaf Spot |
-| 2 | Anthracnose Fruit Rot |
-| 3 | Blossom Blight |
-| 4 | Gray Mold |
-| 5 | Leaf Spot |
-| 6 | Powdery Mildew (Fruit) |
-| 7 | Powdery Mildew (Leaf) |
+• **Angular Leaf Spot**  
+• **Rust**
 
 </td>
 <td align="center" width="33%">
 
-### 🍅 มะเขือเทศ
+<img src="https://img.shields.io/badge/🍓_STRAWBERRY_DISEASES-7_Types-E91E63?style=for-the-badge&labelColor=1a1a1a" alt="Strawberry Diseases"/>
 
-| # | โรค |
-|:-:|:---|
-| 1 | Blight |
-| 2 | Leaf Mold |
-| 3 | Spider Mites |
+<br><br>
+
+• **Angular Leaf Spot**  
+• **Anthracnose Fruit Rot**  
+• **Blossom Blight**  
+• **Gray Mold**  
+• **Leaf Spot**  
+• **Powdery Mildew (Fruit)**  
+• **Powdery Mildew (Leaf)**
+
+</td>
+<td align="center" width="33%">
+
+<img src="https://img.shields.io/badge/🍅_TOMATO_DISEASES-3_Types-FF5722?style=for-the-badge&labelColor=1a1a1a" alt="Tomato Diseases"/>
+
+<br><br>
+
+• **Blight**  
+• **Leaf Mold**  
+• **Spider Mites**
 
 </td>
 </tr>
 </table>
 
-<br>
-
----
-
-<br>
-
-## 📂 โครงสร้างโปรเจค
-
-```
-🌿 Plant-Disease-Detection/
-│
-├── 📄 main.py              ← สคริปต์เทรน (รองรับ resume อัตโนมัติ)
-├── 📄 data.yaml             ← config dataset & class names
-├── 🧠 yolo26n.pt            ← pretrained weights (Nano)
-│
-├── 📁 train/                ← ~2,900 ภาพสำหรับเทรน
-├── 📁 valid/                ← ~1,400 ภาพสำหรับ validate
-├── 📁 test/                 ← ~1,100 ภาพสำหรับทดสอบ
-│
-└── 📁 runs/detect/train/    ← ผลลัพธ์การเทรน
-     ├── weights/            ← best.pt & last.pt
-     ├── results.png         ← กราฟ loss & metrics
-     ├── confusion_matrix.png
-     └── ...                 ← PR curve, F1 curve, etc.
-```
-
-<br>
-
----
-
-<br>
-
-## ⚙️ Training Config
-
-<div align="center">
-
-| Parameter | Value |
-|:---------:|:-----:|
-| **Model** | `YOLOv26 Nano` |
-| **Epochs** | `100` |
-| **Batch Size** | `16` |
-| **Image Size** | `640 × 640` |
-| **Optimizer** | `Auto (SGD)` |
-| **Learning Rate** | `0.01` |
-| **Dataset** | `~5,493 images` |
-| **Resume** | `✅ Auto-checkpoint` |
-
-</div>
-
-<br>
-
-<details>
-<summary><b>💡 หมายเหตุ — main.py รองรับ resume อัตโนมัติ</b></summary>
-
-<br>
-
-ถ้าเทรนค้างอยู่ สคริปต์จะเช็ค checkpoint ที่ `runs/detect/train/weights/last.pt`  
-แล้ว **resume ต่อจากจุดที่หยุด** ให้เองเลย ไม่ต้องเทรนใหม่ตั้งแต่ต้น ✌️
-
-</details>
-
-<br>
-
----
-
-<br>
-
-## 🙏 Credits & Acknowledgements
-
-<div align="center">
-
-|  |  |
-|:-:|:-:|
-| [![Roboflow](https://img.shields.io/badge/Roboflow-6706CE?style=for-the-badge&logo=roboflow&logoColor=white)](https://roboflow.com) | Dataset จาก [Roboflow Universe](https://universe.roboflow.com/artificial-intelligence-82oex/detecting-diseases/dataset/6) |
-| [![Ultralytics](https://img.shields.io/badge/Ultralytics-111F68?style=for-the-badge&logo=yolo&logoColor=white)](https://ultralytics.com) | YOLOv26 Model โดย [Ultralytics](https://github.com/ultralytics/ultralytics) |
-
 </div>
 
 <br>
 
 ---
 
+<br>
+
+## � **Project Structure**
+
+```bash
+� Plant-Disease-Detection/
+│
+├── � main.py                    # 7-line detection script
+├── ⚙️ requirements.txt           # Dependencies  
+├── � data.yaml                  # Dataset config
+├── 🧠 yolo26n.pt                 # Pre-trained weights
+│
+├── 📁 runs/detect/train/         # Training results
+│   ├── 🎯 weights/best.pt        # Trained model (ready to use!)
+│   ├── 📈 results.png            # Training graphs
+│   ├── 🔍 confusion_matrix.png   # Performance analysis  
+│   └── 📊 validation_results/    # Prediction examples
+│
+└── 📁 train/valid/test/          # Dataset (5,493 images)
+```
+
+---
+
+## ⚡ **Technical Specifications**
+
 <div align="center">
 
-**⭐ ถ้าโปรเจคนี้มีประโยชน์ กด Star ให้ด้วยนะครับ!**
+<table>
+<tr>
+<td align="center">
+  <img src="https://img.shields.io/badge/Model-YOLOv26_Nano-00D2FF?style=for-the-badge&labelColor=1a1a1a" alt="Model"/>
+  <br><sub>Lightweight & Fast</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/Dataset-5,493_Images-4CAF50?style=for-the-badge&labelColor=1a1a1a" alt="Dataset"/>
+  <br><sub>High Quality Data</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/Resolution-640×640-FF9800?style=for-the-badge&labelColor=1a1a1a" alt="Resolution"/>
+  <br><sub>Optimal Balance</sub>
+</td>
+<td align="center">
+  <img src="https://img.shields.io/badge/Training-100_Epochs-9C27B0?style=for-the-badge&labelColor=1a1a1a" alt="Training"/>
+  <br><sub>Fully Converged</sub>
+</td>
+</tr>
+</table>
 
-<sub>Made with 💚 for smarter agriculture</sub>
+</div>
+
+---
+
+## 🤝 **Credits & Acknowledgments**
+
+<div align="center">
+
+<br>
+
+**Built with powerful open-source tools**
+
+<br>
+
+<table>
+<tr>
+<td align="center" width="50%">
+  <img src="https://img.shields.io/badge/Dataset_by-Roboflow-6706CE?style=for-the-badge&logo=roboflow&logoColor=white&labelColor=1a1a1a" alt="Roboflow"/>
+  <br><br>
+  <sub>High-quality annotated dataset from <a href="https://universe.roboflow.com/artificial-intelligence-82oex/detecting-diseases/dataset/6">Roboflow Universe</a></sub>
+</td>
+<td align="center" width="50%">
+  <img src="https://img.shields.io/badge/AI_Framework-Ultralytics-00D2FF?style=for-the-badge&logo=yolo&logoColor=white&labelColor=1a1a1a" alt="Ultralytics"/>
+  <br><br>
+  <sub>YOLOv26 model powered by <a href="https://github.com/ultralytics/ultralytics">Ultralytics</a></sub>
+</td>
+</tr>
+</table>
+
+<br><br>
+
+---
+
+<br>
+
+<img src="https://img.shields.io/badge/⭐_If_this_helps_you-Give_it_a_Star!-FFD700?style=for-the-badge&labelColor=1a1a1a" alt="Star"/>
+
+<br>
+
+<sub>**Made with 💚 for smarter agriculture and better crop health**</sub>
+
+<br><br>
 
 </div>
